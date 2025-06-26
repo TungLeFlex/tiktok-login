@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Instagram Redirect</title></head>
+<body>
+<script>
+  const code = new URLSearchParams(window.location.search).get("code");
+  if (code) {
+    localStorage.setItem("instagram_code", code);
+  }
+  window.close();
+</script>
+<h1>Đang xử lý đăng nhập Instagram...</h1>
+</body>
+</html>
