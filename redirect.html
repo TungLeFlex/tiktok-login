@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Redirecting...</title></head>
+<body>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    if (code) {
+      document.body.innerHTML = `<h2>Code: ${code}</h2><p>Copy this code and paste back into your app.</p>`;
+    } else {
+      document.body.innerHTML = "<h2>No code received.</h2>";
+    }
+  </script>
+</body>
+</html>
