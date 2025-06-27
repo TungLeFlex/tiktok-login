@@ -6,10 +6,10 @@
   <script>
     (function() {
       const params = new URLSearchParams(window.location.search);
-      const code = params.get("code");
+      const tiktok_code = params.get("code");
       const state = params.get("state");
       if (window.opener) {
-        window.opener.postMessage({ service: "tiktok", code, state }, "*");
+        window.opener.postMessage({ service: "tiktok", tiktok_code, state }, "*");
         window.close();
       }
     })();
