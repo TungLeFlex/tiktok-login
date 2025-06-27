@@ -6,11 +6,11 @@
   <script>
     (function() {
       const params = new URLSearchParams(window.location.search);
-      const code = params.get("code");
+      const line_code = params.get("code");
       const state = params.get("state");
       // Gửi kết quả về cửa sổ mở app chính
       if (window.opener) {
-        window.opener.postMessage({ code, state }, "*");
+        window.opener.postMessage({ line_code, state }, "*");
         window.close();
       }
     })();
