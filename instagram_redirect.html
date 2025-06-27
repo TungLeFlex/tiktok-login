@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head><title>Instagram Redirect</title></head>
+<head>
+  <meta charset="utf-8" />
+  <title>Instagram Login Callback</title>
+  <script>
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const state = params.get("state");
+      if (window.opener) {
+        window.opener.postMessage({ service: "instagram", code, state }, "*");
+        window.close();
+      }
+    })();
+  </script>
+</head>
 <body>
-<script>
-  const code = new URLSearchParams(window.location.search).get("code");
-  if (code) {
-    localStorage.setItem("instagram_code", code);
-  }
-  window.close();
-</script>
-<h1>Đang xử lý đăng nhập Instagram...</h1>
+  Đang xử lý đăng nhập Instagram...
 </body>
 </html>
