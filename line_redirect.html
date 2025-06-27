@@ -10,7 +10,7 @@
       const state = params.get("state");
       // Gửi kết quả về cửa sổ mở app chính
       if (window.opener) {
-        window.opener.postMessage({ line_code, state }, "*");
+        window.opener.postMessage({ service: "line", line_code, state }, "*");
         window.close();
       }
     })();
