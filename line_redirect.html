@@ -6,9 +6,7 @@
   <script>
     (function() {
       const params = new URLSearchParams(window.location.search).toString();
-      // đảm bảo params không rỗng
-      const target = `lumiraapp://line_callback${params ? '?' + params : ''}`;
-      // chờ 200ms để browser chắc chắn đã render rồi chuyển
+      const target = `lumira-app://line-callback${params ? '?' + params : ''}`;
       setTimeout(() => {
         window.location.replace(target);
       }, 200);
