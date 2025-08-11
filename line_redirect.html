@@ -5,11 +5,14 @@
   <title>LINE Login Callback</title>
   <script>
     (function() {
-      const params = new URLSearchParams(window.location.search).toString();
-      const target = `lumira-app://line-callback${params ? '?' + params : ''}`;
-      setTimeout(() => {
-        window.location.replace(target);
-      }, 200);
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const state = params.get("state");
+      if (code && state) {
+        window.location.href = `lumira-app://line-callback?code=${code}&state=${state}`;
+      } else {
+        document.body.innerHTML = "Missing code or state.";
+      }
       // const params = new URLSearchParams(window.location.search);
       // const line_code = params.get("code");
       // const state = params.get("state");
