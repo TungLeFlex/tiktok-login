@@ -5,10 +5,13 @@
   <title>LINE Login Callback</title>
   <script>
     (function() {
-      const params = new URLSearchParams(window.location.search);
-      const code = params.get('code');
-      const state = params.get('state');
-      window.location.href = `lumiraapp://line_callback?code=${code}&state=${state}`;
+      const params = new URLSearchParams(window.location.search).toString();
+      // đảm bảo params không rỗng
+      const target = `lumiraapp://line_callback${params ? '?' + params : ''}`;
+      // chờ 200ms để browser chắc chắn đã render rồi chuyển
+      setTimeout(() => {
+        window.location.replace(target);
+      }, 200);
       // const line_code = params.get("code");
       // const state = params.get("state");
       // // Gửi kết quả về cửa sổ mở app chính
