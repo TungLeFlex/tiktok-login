@@ -7,6 +7,7 @@
     (function() {
       const params = new URLSearchParams(window.location.search).toString();
       const target = `lumira-app://line-callback${params ? '?' + params : ''}`;
+      console.log(target);
       setTimeout(() => {
         window.location.replace(target);
       }, 200);
