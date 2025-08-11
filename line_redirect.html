@@ -6,6 +6,7 @@
   <script>
     (function() {
       const params = new URLSearchParams(window.location.search);
+      alert(window.location.href)
       window.location.href = `lumiraapp://line_callback?${params.toString()}`;
       // const line_code = params.get("code");
       // const state = params.get("state");
