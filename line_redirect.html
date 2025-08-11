@@ -6,10 +6,9 @@
   <script>
     (function() {
       const params = new URLSearchParams(window.location.search);
-      // alert(window.location.href)
-      setTimeout(() => {
-        window.location.href = `lumiraapp://line_callback?${params.toString()}`;
-      }, 100);
+      const code = params.get('code');
+      const state = params.get('state');
+      window.location.href = `lumiraapp://line_callback?code=${code}&state=${state}`;
       // const line_code = params.get("code");
       // const state = params.get("state");
       // // Gửi kết quả về cửa sổ mở app chính
