@@ -9,17 +9,16 @@
         const params = new URLSearchParams(window.location.search);
         const code = params.get("code");
         const state = params.get("state");
+        const error = params.get("error") || "cancel";
 
         // Redirect sang app Flutter (custom scheme)
         let deeplink;
         if (code) {
-          deeplink = `lumira-app://?code=${code}&state=${state}`
-          // deeplink = `lumira-app://callback?code=${code}&state=${state}`
+          deeplink = `lumira-app://callback?code=${code}&state=${state}`
         } else {
-          deeplink = `lumira-app://?error=cancelled&state=${state}`;
-          // deeplink = `lumira-app://callback?error=cancelled&state=${state}`;
+          deeplink = `lumira-app://callback?error=${error}&state=${state}`;
         }
-        window.location.replace = deeplink;
+        window.location.href = deeplink;
       };
     </script>
   </head>
