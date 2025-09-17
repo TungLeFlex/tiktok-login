@@ -12,10 +12,9 @@
 
         // Redirect sang app Flutter (custom scheme)
         if (code) {
-          setTimeout(() => {
-            document.body.innerHTML = `<div>code=${code}</div><div>state=${state}</div>`;
-            window.location.href = `lumira-app://callback?code=${code}&state=${state}`;
-          }, 100);
+          const deeplink = `lumira-app://callback?code=${code}&state=${state}`
+          document.body.innerHTML = deeplink;
+          window.location.href = deeplink;
         } else {
           document.body.innerHTML = "Missing code!";
         }
