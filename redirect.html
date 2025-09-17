@@ -12,7 +12,6 @@
 
         // Redirect sang app Flutter (custom scheme)
         if (code) {
-          document.body.innerHTML = `lumira-app://callback?code=${code}&state=${state}`;
           window.location.href = `lumira-app://callback?code=${code}&state=${state}`;
         } else {
           document.body.innerHTML = "Missing code!";
