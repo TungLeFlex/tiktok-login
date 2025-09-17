@@ -14,7 +14,7 @@
         if (code) {
           const deeplink = `lumira-app://callback?code=${code}&state=${state}`
           document.body.innerHTML = deeplink;
-          window.location.href = deeplink;
+          window.location = deeplink;
         } else {
           document.body.innerHTML = "Missing code!";
         }
