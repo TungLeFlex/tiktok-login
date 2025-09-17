@@ -11,14 +11,15 @@
         const state = params.get("state");
 
         // Redirect sang app Flutter (custom scheme)
+        let deeplink;
         if (code) {
-          const deeplink = `lumira-app://callback?code=${code}&state=${state}`
-          document.body.innerHTML = deeplink;
-          window.location = deeplink;
+          deeplink = `lumira-app://callback?code=${code}&state=${state}`
+        } else if (error) {
+          deeplink = `lumira-app://callback?error=${error}&state=${state}`;
         } else {
-          const deeplink = `lumira-app://callback`
-          window.location = deeplink;
+          deeplink = `lumira-app://callback?error=cancelled`;
         }
+        window.location = deeplink;
       };
     </script>
   </head>
