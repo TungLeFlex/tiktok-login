@@ -17,7 +17,7 @@
         } else {
           deeplink = `lumira-app://callback?error=cancelled&state=${state}`;
         }
-        window.location.href = deeplink;
+        window.location.replace = deeplink;
       };
     </script>
   </head>
