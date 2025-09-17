@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <title>TikTok Login Callback</title>
-  <script>
-    (function() {
-      const params = new URLSearchParams(window.location.search);
-      const tiktok_code = params.get("code");
-      const state = params.get("state");
-      if (window.opener) {
-        window.opener.postMessage({ service: "tiktok", tiktok_code, state }, "*");
-        window.close();
-      }
-    })();
-  </script>
-</head>
-<body>
-  Đang xử lý đăng nhập TikTok...
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>TikTok Redirect</title>
+    <script>
+      window.onload = function () {
+        // Lấy query params từ URL hiện tại
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get("code");
+        const state = params.get("state");
+
+        // Redirect sang app Flutter (custom scheme)
+        if (code) {
+          document.body.innerHTML = `myapp://callback?code=${code}&state=${state}`;
+          // window.location.href = `myapp://callback?code=${code}&state=${state}`;
+        } else {
+          document.body.innerHTML = "Missing code!";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
 </html>
