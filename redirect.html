@@ -14,8 +14,6 @@
         let deeplink;
         if (code) {
           deeplink = `lumira-app://callback?code=${code}&state=${state}`
-        } else if (error) {
-          deeplink = `lumira-app://callback?error=${error}&state=${state}`;
         } else {
           deeplink = `lumira-app://callback?error=cancelled&state=${state}`;
         }
