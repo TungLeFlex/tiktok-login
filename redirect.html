@@ -18,7 +18,9 @@
         } else {
           deeplink = `lumira-app://callback?error=${error}&state=${state}`;
         }
-        window.location.href = deeplink;
+        
+        setTimeout(() => { window.location.href = deeplink; }, 1000);
+        setTimeout(() => window.close(), 3000);
       };
     </script>
   </head>
