@@ -14,9 +14,11 @@
         // Redirect sang app Flutter (custom scheme)
         let deeplink;
         if (code) {
-          deeplink = `lumira-app://callback?code=${code}&state=${state}`
+          deeplink = `lumira-app://callback?code=${code}&state=${state}`;
+          document.body.innerHTML = `<div>code=${code}</div><div>state=${state}</div>`;
         } else {
           deeplink = `lumira-app://callback?error=${error}&state=${state}`;
+          document.body.innerHTML = `<div>error=${error}</div><div>state=${state}</div>`;
         }
         
         setTimeout(() => { window.location.href = deeplink; }, 1000);
